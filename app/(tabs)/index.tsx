@@ -1,14 +1,16 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import ScreenLayout from '@/components/ui/ScreenLayout';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+  const router = useRouter();
+  
   return (
     <ScreenLayout>
       <ParallaxScrollView
@@ -76,6 +78,11 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <TouchableOpacity style={styles.demoButton} onPress={() => router.push('/demo')}>
+          <ThemedText style={styles.demoButtonText}>Go to Demo Page</ThemedText>
+        </TouchableOpacity>
+      </ThemedView>
     </ParallaxScrollView>
     </ScreenLayout>
   );
@@ -97,5 +104,17 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  demoButton: {
+    backgroundColor: '#1D3D47',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  demoButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
