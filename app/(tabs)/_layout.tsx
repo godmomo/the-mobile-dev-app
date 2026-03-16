@@ -30,11 +30,18 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
-      <Tabs.Screen
+<Tabs.Screen
         name="counter_savestate"
         options={{
           title: 'Counter',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="flame.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="demo"
+        options={{
+          title: 'SQLite',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="doc.fill" color={color} />,
         }}
       />
     </Tabs>
